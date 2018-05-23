@@ -1,0 +1,289 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+using LargeCharacters;
+
+/*
+    Coded for a bit of fun, the program takes in a numeric string and converts it to a graphical representation of that number.
+    The user is requires to use the "ConvertAndDisplay()" extension method attached to "string"
+    
+    See Main for example...
+*/
+
+namespace Rextester
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            string numericString = "124";
+
+            numericString.ConvertAndDisplay();
+        }
+    }
+}
+
+namespace LargeCharacters
+{
+    public static class Number
+    {
+        public static void ConvertAndDisplay(this string str)
+        {
+            foreach(string s in Number.ToLarge(str))
+            {
+                Console.WriteLine(s);
+            }
+        }
+        
+        public static string[] ToLarge(string input)
+        {
+            char[] c = input.ToCharArray();
+            string[] lines = new string[7];
+            int counter = 0;
+            
+            foreach(char ch in c)
+            {
+                switch(ch)
+                {
+                    case '0':
+                        counter = 0;
+                        foreach(string s in Numbers.zero())
+                        {
+                            lines[counter] += s;
+                            counter++;
+                        }
+                        break;
+                    case '1':
+                        counter = 0;
+                        foreach(string s in Numbers.one())
+                        {
+                            lines[counter] += s;
+                            counter++;
+                        }
+                        break;
+                    case '2':
+                        counter = 0;
+                        foreach(string s in Numbers.two())
+                        {
+                            lines[counter] += s;
+                            counter++;
+                        }
+                        break;
+                    case '3':
+                        counter = 0;
+                        foreach(string s in Numbers.three())
+                        {
+                            lines[counter] += s;
+                            counter++;
+                        }
+                        break;
+                    case '4':
+                        counter = 0;
+                        foreach(string s in Numbers.four())
+                        {
+                            lines[counter] += s;
+                            counter++;
+                        }
+                        break;
+                    case '5':
+                        counter = 0;
+                        foreach(string s in Numbers.five())
+                        {
+                            lines[counter] += s;
+                            counter++;
+                        }
+                        break;
+                    case '6':
+                        counter = 0;
+                        foreach(string s in Numbers.six())
+                        {
+                            lines[counter] += s;
+                            counter++;
+                        }
+                        break;
+                    case '7':
+                        counter = 0;
+                        foreach(string s in Numbers.seven())
+                        {
+                            lines[counter] += s;
+                            counter++;
+                        }
+                        break;
+                    case '8':
+                        counter = 0;
+                        foreach(string s in Numbers.eight())
+                        {
+                            lines[counter] += s;
+                            counter++;
+                        }
+                        break;
+                    case '9':
+                        counter = 0;
+                        foreach(string s in Numbers.nine())
+                        {
+                            lines[counter] += s;
+                            counter++;
+                        }
+                        break;
+                }
+            }
+            
+            return lines;
+        }
+    }
+    
+    public static class Numbers
+    {
+        public static string[] zero()
+        {
+            string[] lines = new string[7];
+            
+            lines[0] = "   0000   ";
+            lines[1] = " 000  000 ";
+            lines[2] = " 000  000 ";
+            lines[3] = " 000  000 ";
+            lines[4] = " 000  000 ";
+            lines[5] = " 000  000 ";
+            lines[6] = "   0000   ";
+            
+            return lines;
+        }
+        
+        public static string[] one()
+        {
+            string[] lines = new string[7];
+            
+            lines[0] = "   11111 ";
+            lines[1] = " 111 111 ";
+            lines[2] = "     111 ";
+            lines[3] = "     111 ";
+            lines[4] = "     111 ";
+            lines[5] = "     111 ";
+            lines[6] = "     111 ";
+            
+            return lines;
+        }
+        
+        public static string[] two()
+        {
+            string[] lines = new string[7];
+            
+            lines[0] = "   22222   ";
+            lines[1] = " 222   222 ";
+            lines[2] = "      222  ";
+            lines[3] = "     222   ";
+            lines[4] = "    222    ";
+            lines[5] = "   222     ";
+            lines[6] = " 222222222 ";
+            
+            return lines;
+        }
+        
+        public static string[] three()
+        {
+            string[] lines = new string[7];
+            
+            lines[0] = "   33333   ";
+            lines[1] = " 333   333 ";
+            lines[2] = "       333 ";
+            lines[3] = "     333   ";
+            lines[4] = "       333 ";
+            lines[5] = " 333   333 ";
+            lines[6] = "   33333   ";
+            
+            return lines;
+        }
+        
+        public static string[] four()
+        {
+            string[] lines = new string[7];
+            
+            lines[0] = " 444   444 ";
+            lines[1] = " 444   444 ";
+            lines[2] = " 444   444 ";
+            lines[3] = " 444444444 ";
+            lines[4] = "       444 ";
+            lines[5] = "       444 ";
+            lines[6] = "       444 ";
+            
+            return lines;
+        }
+        
+        public static string[] five()
+        {
+            string[] lines = new string[7];
+            
+            lines[0] = " 555555555 ";
+            lines[1] = " 555555555 ";
+            lines[2] = " 555       ";
+            lines[3] = " 55555555  ";
+            lines[4] = "       555 ";
+            lines[5] = " 555555555 ";
+            lines[6] = " 55555555  ";
+            
+            return lines;
+        }
+        
+        public static string[] six()
+        {
+            string[] lines = new string[7];
+            
+            lines[0] = "    666666  ";
+            lines[1] = "  666666    ";
+            lines[2] = " 666        ";
+            lines[3] = " 666666666  ";
+            lines[4] = " 666    666 ";
+            lines[5] = " 666666666  ";
+            lines[6] = "   666666   ";
+            
+            return lines;
+        }
+        
+        public static string[] seven()
+        {
+            string[] lines = new string[7];
+            
+            lines[0] = " 7777777777 ";
+            lines[1] = " 7777777777 ";
+            lines[2] = "       777  ";
+            lines[3] = "      777   ";
+            lines[4] = "     777    ";
+            lines[5] = "    777     ";
+            lines[6] = "   777      ";
+            
+            return lines;
+        }
+        
+        public static string[] eight()
+        {
+            string[] lines = new string[7];
+            
+            lines[0] = "    8888    ";
+            lines[1] = "  88    88  ";
+            lines[2] = " 888    888 ";
+            lines[3] = "  88888888  ";
+            lines[4] = " 888    888 ";
+            lines[5] = "  88    88  ";
+            lines[6] = "   888888   ";
+            
+            return lines;
+        }
+        
+        public static string[] nine()
+        {
+            string[] lines = new string[7];
+            
+            lines[0] = "    9999    ";
+            lines[1] = "  999  999  ";
+            lines[2] = " 999    999 ";
+            lines[3] = "  999999999 ";
+            lines[4] = "        999 ";
+            lines[5] = "  999  999  ";
+            lines[6] = "   999999   ";
+            
+            return lines;
+        }
+    }
+}
